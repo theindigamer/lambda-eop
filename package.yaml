@@ -1,0 +1,70 @@
+name:                eop
+version:             0.1.0.0
+github:              "theindigamer/λ-eop"
+license:             BSD3
+author:              "Varun Gandhi"
+maintainer:          "theindigamer15@gmail.com"
+copyright:           "2018 Varun Gandhi"
+
+extra-source-files:
+- Readme.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the Readme on GitHub at <https://github.com/theindigamer/λ-eop#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bound
+
+default-extensions:
+- DeriveDataTypeable
+- DeriveFunctor
+- DeriveFoldable
+- DeriveTraversable
+- StandaloneDeriving
+- FlexibleInstances
+- FlexibleContexts
+- MultiParamTypeClasses
+- FunctionalDependencies
+- TypeApplications
+- TypeFamilies
+- ConstraintKinds
+- KindSignatures
+- BangPatterns
+- LambdaCase
+- MultiWayIf
+- TupleSections
+- OverloadedStrings
+- NamedFieldPuns
+- PatternSynonyms
+
+library:
+  source-dirs: src
+
+executables:
+  eop-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - eop
+
+tests:
+  eop-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - eop
